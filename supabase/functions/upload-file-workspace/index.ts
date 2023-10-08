@@ -46,11 +46,12 @@ serve(async (req: any) => {
     console.log(`Response text: ${text}`);
     return new Response(`Error: ${response.status}`, { status: response.status });
   } 
-  // Get the response data
-  const data = await response.json();
-  console.log(data);
+  // Get the response data from the server
+  const completedData = await response.json();
+  
+  console.log(completedData);
   return new Response(
-    JSON.stringify(data),
+    JSON.stringify(completedData),
     { headers: {
       ...corsHeaders,
       "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
